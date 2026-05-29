@@ -10,18 +10,6 @@ This repository is designed to help you learn fundamental GitHub operations incl
 - Pushing changes to GitHub
 - Working with public and private repositories
 
-## Join Our Office Hours!
-
-We'll be using this repository during our **Intro to GitHub Office Hours** event. Join us to learn:
-
-- Setting up a repository to experiment in
-- Understanding public vs private repositories
-- Cloning and updating repositories
-- And much more!
-
-**📅 [Register for the event here](https://luma.com/z56kmlpi)**
-
-The event is hosted by Women Defining AI: Community Calendar, and most of the hour will be dedicated to answering your questions. If you've never created a GitHub account, we'll help with that too!
 
 ## Getting Started
 
