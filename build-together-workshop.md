@@ -350,7 +350,7 @@ Add GitHub practice file
 Stage the change:
 
 ```bash
-git add <your-name>-practice.md
+git add workshop-practice.md
 ```
 
 Commit the change:
@@ -664,29 +664,29 @@ Simple PR Description Template
 
 When creating a pull request, you can use this structure:
 
-## What changed?
+-  What changed?
 
-## Why did it change?
+- Why did it change?
 
-## How can someone test it?
+- How can someone test it?
 
-## Anything risky or worth reviewing carefully?
+- Anything risky or worth reviewing carefully?
 
 Example:
 
-## What changed?
+ What changed?
 
 Added a basic RSVP form to the event page.
 
-## Why did it change?
+ Why did it change?
 
 We want guests to be able to submit their attendance and dietary restrictions.
 
-## How can someone test it?
+ How can someone test it?
 
 Open the event page and confirm the form fields appear.
 
-## Anything risky or worth reviewing carefully?
+ Anything risky or worth reviewing carefully?
 
 The form is not connected to a database yet.
 Beginner Rule
