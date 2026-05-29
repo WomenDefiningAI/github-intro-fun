@@ -19,51 +19,102 @@ Today is not about becoming a Git expert.
 
 Today is about becoming Git-comfortable.
 
-## The Big Idea
+## Before You Start
 
-AI tools can help you build faster.
+Please set up the following before the workshop if you can. We will also help at the start of the session.
 
-GitHub helps you build safely.
+**1. Create a GitHub Account**
 
-GitHub gives you:
+1. Go to github.com.
+2. Click **Sign up**.
+3. Enter your email, create a password, and choose a username.
+4. Verify your email address.
 
-* Checkpoints
-* Version history
-* A place to review changes
-* A way to recover from mistakes
-* A project home
-* A collaboration space
+Your account is ready.
 
-Think of GitHub as a safety net for builders.
+**2. Install GitHub Desktop (Recommended)**
 
-## What You Need
+GitHub Desktop is a visual app that includes Git. No command line required.
 
-Before we begin, make sure you have:
+1. Download from desktop.github.com.
+2. Install and open it.
+3. Sign in with your GitHub account.
+
+**If you prefer the command line instead:**
+
+* **Mac**: Run `git --version` in Terminal. If Git is not installed, macOS will prompt you. Or run `brew install git` if you have Homebrew.
+* **Windows**: Download from git-scm.com and run the installer.
+* **Linux**: Run `sudo apt install git` (Ubuntu/Debian) or `sudo yum install git` (Fedora/RHEL).
+
+To verify Git is installed: `git --version`
+
+**What you will need on the day:**
 
 * A laptop
 * A GitHub account
 * GitHub Desktop installed, or Git installed for terminal use
-* Access to this workshop repo
-
-Workshop repo:
-
-```txt
-https://github.com/WomenDefiningAI/github-intro-fun
-```
 
 ## Workshop Agenda
 
-|      Time | Section                                                   |
-| --------: | ------------------------------------------------------    |
-|   0–5 min | Why GitHub matters for AI builders                        |
-|  5–12 min | Core mental model                                         |
-| 12–20 min | GitHub survival tour                                      |
-| 20–40 min | Hands-on: clone this repo and create a commit             |
-| 40–50 min | GitHub with Claude Code and Lovable                       |
-| 50–55 min | Commit message examples                                   |
-| 55–60 min | Optional: creating your own repo and intro to branches & PR |
+1. Why GitHub matters for AI builders
+2. Core mental model
+3. GitHub survival tour
+4. Hands-on: create your own repo, make a commit, and push it
+5. GitHub with Claude Code and Lovable
+6. Commit message examples
+7. Optional: intro to branches & pull requests
 
-## Part 1: The Builder Mental Model
+## Part 1: What is GitHub?
+
+GitHub is an online workspace where people store projects, track changes, and collaborate.
+
+Think of it as:
+
+> Google Drive + version history + teamwork + project memory
+
+GitHub is commonly used for code, but it is not only for code. You can use it for:
+
+* Websites
+* AI app projects
+* Documentation
+* Notes
+* Research
+* Product ideas
+* Workshop materials
+* Automation workflows
+* Community projects
+
+## Part 2: Why GitHub Matters, Even If You Are Not Technical
+
+GitHub helps you:
+
+* Save versions of your work
+* Recover from mistakes
+* See what changed over time
+* Collaborate with others
+* Share your project
+* Keep your work organized
+* Connect your project to tools like Claude Code, Lovable, Cursor, Netlify, and Vercel
+
+When you are building with AI tools, changes can happen very quickly. GitHub gives you checkpoints, history, and a safer way to experiment.
+
+## Part 3: Git vs GitHub
+
+You may hear both terms: **Git** and **GitHub**.
+
+For today, you can think of them together. But here is the simple distinction:
+
+* **Git** is the version-control system. It tracks changes.
+* **GitHub** is the online place where your project lives and where people collaborate.
+
+Beginner mental model:
+
+> Git is the memory.
+> GitHub is the home.
+
+You do not need to fully understand the difference on day one. Together, they help you save, share, review, and recover your project.
+
+## Part 4: The Builder Mental Model
 
 You only need a few concepts to get started.
 
@@ -87,7 +138,7 @@ clone → edit → status → add → commit
 
 That is enough for today.
 
-## Part 2: GitHub Tour
+## Part 5: GitHub Tour
 
 Open the workshop repo:
 
@@ -161,49 +212,50 @@ Every commit is a checkpoint that says:
 * When it changed
 * A short note about the change
 
-## Part 3: Clone This Repo
+## Part 6: Create Your Own Repo and Clone It
 
-We will clone the workshop repo to our computers.
+Now we will create your own GitHub repo and clone it to your computer. This is the repo you will use for the rest of the hands-on section.
 
-Repo URL:
+**Step 1: Create your repo on GitHub**
+
+1. Go to github.com and sign in.
+2. Click the **+** icon in the top right and choose **New repository**.
+3. Name your repo. Some ideas:
 
 ```txt
-https://github.com/WomenDefiningAI/github-intro-fun
+my-first-builder-repo
+ai-builder-playground
+github-practice
 ```
+
+4. Set visibility to **Public** or **Private** — your choice.
+5. Check **Add a README file**.
+6. Click **Create repository**.
+
+Your repo is now live on GitHub.
+
+**Step 2: Clone it to your computer**
 
 ## Option A: Clone with GitHub Desktop
 
-This is the beginner-friendly option.
+1. In GitHub Desktop, go to **File → Clone Repository**.
+2. Click the **GitHub.com** tab and find your new repo.
+3. Choose where to save it on your computer.
+4. Click **Clone**.
 
-1. Open the repo in your browser.
-2. Click the green **Code** button.
-3. Choose **Open with GitHub Desktop**.
-4. Choose where to save it on your computer.
-5. Click **Clone**.
-
-Once cloned, you should have a local copy of the repo on your computer.
+Once cloned, you should have a local copy on your computer.
 
 ## Option B: Clone with Terminal
 
-Open your terminal and run:
+Copy your repo URL from GitHub (green **Code** button → HTTPS), then run:
 
 ```bash
-git clone https://github.com/WomenDefiningAI/github-intro-fun.git
-```
-
-Move into the project folder:
-
-```bash
-cd github-intro-fun
-```
-
-Check that Git sees the project:
-
-```bash
+git clone <your-repo-url>
+cd <your-repo-name>
 git status
 ```
 
-You should see something like:
+You should see:
 
 ```txt
 On branch main
@@ -212,7 +264,7 @@ nothing to commit, working tree clean
 
 That means your local copy is ready.
 
-## Part 4: Make a Small Change
+## Part 7: Make a Small Change
 
 Now we will make a small change to a file.
 
@@ -247,7 +299,7 @@ Today I cloned a GitHub repo and made my first local change.
 
 Save the file.
 
-## Part 5: Check What Changed
+## Part 8: Check What Changed
 
 Before committing, check what changed.
 
@@ -275,7 +327,7 @@ git diff
 
 For a brand-new file, `git diff` may not show much until the file is staged. That is okay.
 
-## Part 6: Create a Commit
+## Part 9: Create a Commit
 
 A commit is a saved checkpoint with a note.
 
@@ -309,7 +361,27 @@ git commit -m "Add GitHub practice file"
 
 Now you created a local checkpoint.
 
-## Part 7: View Commit History
+## Part 10: Push to GitHub
+
+Now that you have a local commit, send it to GitHub.
+
+Because this is your own repo, you have permission to push.
+
+## Option A: GitHub Desktop
+
+Click the **Push origin** button at the top of the GitHub Desktop window.
+
+That is it. Your commit is now on GitHub.
+
+## Option B: Terminal
+
+```bash
+git push
+```
+
+After pushing, visit your repo on github.com to confirm the commit is there.
+
+## Part 11: View Commit History
 
 ## Option A: GitHub Desktop
 
@@ -331,30 +403,17 @@ You should see your commit message near the top:
 Add GitHub practice file
 ```
 
-## Important Note About Pushing
-
-Because this is a shared workshop repo, you may not have permission to push your commit back to the original repo.
-
-That is okay.
-
-Today’s main goal is to learn how to:
-
-```txt
-clone → edit → commit → view history
-```
-
-Pushing to GitHub is a next step, usually done in a repo you own or have permission to edit.
-
-## Part 8: What Did We Just Do?
+## Part 12: What Did We Just Do?
 
 We:
 
-1. Found a GitHub repo
+1. Created our own GitHub repo
 2. Cloned it to our computer
 3. Created a new file
 4. Checked what changed
 5. Created a commit
-6. Viewed the commit history
+6. Pushed to GitHub
+7. Viewed the commit history
 
 That is the core Git workflow.
 
@@ -362,7 +421,7 @@ The big idea:
 
 > A commit is a checkpoint for future-you.
 
-## Part 9: Commit Messages
+## Part 13: Commit Messages
 
 A commit message is the note attached to your checkpoint.
 
@@ -426,7 +485,7 @@ Add RSVP form
 - Not yet connected to Google Sheets
 ```
 
-## Part 10: GitHub with Claude Code
+## Part 14: GitHub with Claude Code
 
 Claude Code can make changes directly inside your project files.
 
@@ -462,7 +521,7 @@ Helpful Claude Code instruction:
 Before making changes, inspect the project structure and explain your plan. Make one focused change only. Do not modify unrelated files. After making changes, summarize what changed and any files you touched.
 ```
 
-## Part 11: GitHub with Lovable
+## Part 15: GitHub with Lovable
 
 Lovable can generate and update apps quickly.
 
@@ -486,7 +545,7 @@ Why GitHub helps with Lovable:
 * You can collaborate with others.
 * You can recover from mistakes more easily.
 
-## Part 12: What Never Goes in GitHub
+## Part 16: What Never Goes in GitHub
 
 Do **not** commit:
 
@@ -506,52 +565,7 @@ This is especially important for public repositories.
 
 If you accidentally commit a secret, deleting the file later may not be enough because GitHub stores history. You may need to rotate the key or token.
 
-## Part 13: Optional Stretch — Create Your Own Repo
-
-If there is time, we may create a new repo.
-
-Suggested repo names:
-
-```txt
-my-first-builder-repo
-ai-builder-playground
-daily-os-experiment
-lovable-test-project
-claude-code-practice
-```
-
-A simple README starter:
-
-```md
-# My First Builder Repo
-
-## What I want to build
-
-I want to build...
-
-## Who it is for
-
-This is for...
-
-## Tools I might use
-
-- GitHub
-- Claude Code
-- Lovable
-- ChatGPT
-
-## Notes from Git 101
-
-GitHub helps me...
-```
-
-Possible first commit message:
-
-```txt
-Add first README
-```
-
-## Part 14: Optional Stretch — What Are Branches?
+## Part 16: Optional Stretch — What Are Branches?
 
 Branches are useful later, but they are not required for your first Git session.
 
@@ -582,8 +596,113 @@ For today, the main thing to remember is:
 
 > Branches are for safe experiments.
 > You do not need them to make your first commit.
+## Part 17: Optional Stretch — What Is a Pull Request?
 
-## Part 15: After-Workshop Practice
+A pull request, often called a PR, is a way to review changes before bringing them into the main version of a project.
+
+You do not need to use pull requests for your very first Git session.
+
+But you will see PRs often when:
+
+You collaborate with other people
+You use branches
+You want someone to review your work
+An AI tool like Claude Code makes a bigger change
+You want to carefully inspect changes before accepting them
+
+Think of it like this:
+
+Repo = project home
+Commit = checkpoint
+Branch = safe experiment
+Pull Request = review before accepting the experiment
+Merge = bring it into the main version
+Commit vs Pull Request
+
+A commit is one saved checkpoint.
+
+A pull request is a review packet that may contain one or more commits.
+
+Commit = “I saved this change.”
+Pull Request = “Here are the changes I want to bring into the main project. Can we review them?”
+What You See in a Pull Request
+
+When you open a pull request, you will usually see:
+
+A title
+A description of what changed
+A list of commits
+A Files changed tab
+Comments or review notes
+A merge button
+
+The most useful tab for beginners is usually:
+
+Files changed
+
+That is where you can inspect exactly what was added, removed, or edited.
+
+Why PRs Matter for AI Builders
+
+AI tools can make changes quickly.
+
+That is powerful, but it also means you need a place to slow down and review.
+
+A pull request helps you ask:
+
+What did the AI tool change?
+Did it only change what I asked for?
+Did it touch unrelated files?
+Does the change look safe?
+Should I accept this into the main version?
+
+A helpful rule:
+
+AI can draft the change. You still review and approve it.
+
+Simple PR Description Template
+
+When creating a pull request, you can use this structure:
+
+## What changed?
+
+## Why did it change?
+
+## How can someone test it?
+
+## Anything risky or worth reviewing carefully?
+
+Example:
+
+## What changed?
+
+Added a basic RSVP form to the event page.
+
+## Why did it change?
+
+We want guests to be able to submit their attendance and dietary restrictions.
+
+## How can someone test it?
+
+Open the event page and confirm the form fields appear.
+
+## Anything risky or worth reviewing carefully?
+
+The form is not connected to a database yet.
+Beginner Rule
+
+For today, remember:
+
+A commit is a checkpoint.
+A pull request is a review step.
+
+You do not need to practice PRs right away. First get comfortable with:
+
+clone → edit → status → add → commit → log
+
+Pull requests will make more sense once commits feel familiar.
+
+## Part 18: After-Workshop Practice
 
 After the workshop, practice this flow again:
 
