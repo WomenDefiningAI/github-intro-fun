@@ -1,33 +1,37 @@
 # GitHub Intro Fun
 
-Welcome to this repository! This is a practice repository for learning GitHub basics.
+Welcome to this repository! This is the companion repo for **GitHub for Builders** — a Women Defining AI workshop for people building with AI tools like Claude Code, Lovable, and Cursor.
 
 ## About This Repository
 
-This repository is designed to help you learn fundamental GitHub operations including:
-- Cloning repositories
-- Making updates and commits
-- Pushing changes to GitHub
-- Working with public and private repositories
+This repo is a learning space and workshop reference. Use it to follow along during the session and come back to it later as you build.
 
+## Guides
+
+### [Build TogetHER Workshop Guide](build-together-workshop.md)
+
+**Start here if you are attending or following along with the workshop.**
+
+A step-by-step follow-along guide for the GitHub for Builders session. Covers everything from setup to creating your own repo, making commits, and pushing to GitHub. Includes sections on using GitHub with Claude Code and Lovable.
+
+### [GitHub 101 — Comprehensive Reference](github-101-final.md)
+
+**Use this as your ongoing reference guide.**
+
+A thorough beginner-friendly guide covering core concepts, the GitHub UI, Git commands, commit message best practices, troubleshooting, and common questions. Great to bookmark and return to as you keep building.
 
 ## Getting Started
 
-1. Clone this repository to your local machine
-2. Make some changes to the files
-3. Commit and push your changes
-4. Practice, practice, practice!
+Head to the [Build TogetHER Workshop Guide](build-together-workshop.md) to get started. It will walk you through creating a GitHub account, installing GitHub Desktop, and making your first commit.
 
-## Resources
-
-📚 **[GitHub 101 Guide](github-101.md)** - A comprehensive beginner-friendly guide covering core concepts, common commands, workflows, and best practices.
+> Note: This is a shared repository. You can clone it and explore, but to practice committing and pushing, the workshop guide will have you create your own repo where you have full access.
 
 ## Files in This Repository
 
-- `anennya_test.md` - A test markdown file with some fun content about GitHub
-- `github-101.md` - Beginner's guide to GitHub concepts and commands
+- `build-together-workshop.md` — Follow-along workshop guide
+- `github-101-final.md` — Comprehensive GitHub reference
+- `practice/` — Practice files from workshop participants
 
 ---
 
-Happy coding! 🚀
-
+Happy building!
