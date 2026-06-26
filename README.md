@@ -1,6 +1,6 @@
 # GitHub Intro Fun
 
-Welcome to this repository! This is the companion repo for **GitHub for Builders** — a Women Defining AI workshop for people building with AI tools like Claude Code, Lovable, and Cursor.
+Welcome to this repository! This is the companion repo for **GitHub for Builders** — a Women Defining AI workshop for people building with AI tools like Claude Code, Lovable, and Cursor. I am making this change live right now.
 
 ## About This Repository
 
