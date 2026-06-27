@@ -21,6 +21,22 @@ Today is not about becoming a Git expert. Today is about becoming Git-comfortabl
 
 ---
 
+## A Note on How We're Learning
+
+We're going to walk through this manually first — the "hard way."
+
+That means typing commands, creating files ourselves, and committing step by step. This might feel slower than just asking Claude Code to do it.
+
+But here's why it matters: **Claude Code, Lovable, and every other AI tool does these exact same steps under the hood.** When you know what the steps are, you can:
+
+- Recognize what happened when something breaks
+- Give better instructions to AI tools ("create a branch before making changes")
+- Review AI-generated changes with confidence instead of just hoping they're right
+
+The manual way teaches you the concepts. The AI tools handle the mechanics once you understand them.
+
+---
+
 ## Part 1: What Is Git and Why Does It Matter?
 
 ### The simple version
@@ -43,6 +59,7 @@ GitHub gives you:
 - **History** — a record of what changed, when, and why
 - **Control** — the ability to review changes before they become permanent
 - **Recovery** — a way to undo mistakes
+- **Consistency** — you can instruct Claude Code on *how* to commit, what to name branches, and when to push, so your project stays organized as AI tools make changes
 
 > The AI is a fast, capable collaborator. GitHub is where you review its work.
 
@@ -74,6 +91,7 @@ You only need a handful of concepts today. Here's the whole vocabulary:
 | **Pull** | Download the latest changes from GitHub to your computer |
 | **Branch** | A separate version of your project for safe experimentation |
 | **Pull Request** | A proposal to bring branch changes into the main version |
+| **Fork** | Your own copy of someone else's repo on GitHub |
 
 The core beginner workflow — and all you need for today:
 
@@ -130,27 +148,60 @@ Before we create our own, let's walk through what a repo looks like.
 
 Open this repo: `https://github.com/WomenDefiningAI/github-intro-fun`
 
-We'll look at:
+### Repo name and description
 
-- **Repo name and description** — what the project is
-- **README** — the front page; every good repo has one
-- **File list** — what's inside the project
-- **The green Code button** — this is how you clone
-- **Commit history** — the project's timeline of changes
-- **Branches** — we'll cover these more later
+The repo name appears at the top and in the URL. The URL structure tells you a lot:
 
-### Clone vs. Download ZIP
+```
+github.com / WomenDefiningAI / github-intro-fun
+             ↑ organization    ↑ repo name
+```
 
-When you click the green Code button, you'll see options including **Download ZIP** and **Open with GitHub Desktop**.
+When you create your own repo, your username will appear where the organization name is.
 
-| | Download ZIP | Clone |
-|---|---|---|
-| What you get | Just the files | Files + full history |
-| Connected to GitHub? | No | Yes |
-| Can you push changes? | No | Yes |
-| Use for | Quick read | Actual work |
+### README
+
+The README is the front door of a project — the first thing anyone sees when they visit. It explains what the project is, how to use it, and any important notes.
+
+> **README is primarily written for humans.** It's a landing page for anyone who visits your repo. AI tools can read it too and use it as context, but write it for people first.
+
+Every good repo has a README. Always add one when you create a new repo.
+
+### File list
+
+The file list shows everything inside the project — code, notes, images, config files, documentation. A repo isn't just for code. It's a home for your project.
+
+### The green Code button
+
+This is how you copy the project to your computer. Click it and you'll see several options.
+
+| | Download ZIP | Clone | Fork |
+|---|---|---|---|
+| **What you get** | Files only | Files + full history | Your own copy on GitHub |
+| **Connected to GitHub?** | No | Yes | Yes (via your account) |
+| **Can you push changes?** | No | Yes (if you have write access) | Yes (always, to your fork) |
+| **Use for** | Quick read | Actual work on repos you own or have access to | Contributing to a repo you don't have write access to |
 
 **Always clone, not download ZIP**, when you're going to work on something.
+
+> **When would you fork?** Fork when you want to contribute to someone else's repo and you don't have write access — for example, an open source library, a public template you want to customize, or a community project. You fork it, make changes on your copy, and then open a pull request to propose those changes back to the original. For this workshop and most day-to-day building, you'll clone, not fork.
+
+### Commit history
+
+Click the **commits** link (you'll see something like "12 commits" near the top of the file list). This is your project's timeline.
+
+Every commit shows:
+- What changed
+- Who changed it
+- When it changed
+- A message describing the change
+
+**Click on any commit** to see the diff — a color-coded view of exactly what was added or removed.
+
+- **Green** = added
+- **Red** = removed
+
+> This is the most important view in all of GitHub. After an AI tool makes changes, this is where you come to review exactly what happened. Every commit in history is a checkpoint you can return to. Nothing in Git is permanent — everything is recoverable.
 
 ---
 
@@ -168,11 +219,27 @@ Now it's your turn. Let's create a repo that's yours.
    github-practice
    ```
 3. Add a short description (optional but good habit)
-4. Set visibility to **Public** or **Private** — your choice
-5. Check **Add a README file**
-6. Click **Create repository**
+4. Check **Add a README file**
+5. Click **Create repository**
 
 Your repo is now live on GitHub.
+
+### Public vs. Private
+
+When creating a repo, you'll choose visibility:
+
+**Public** — anyone on the internet can view your repo. Good for:
+- Portfolio work
+- Learning in public
+- Workshop examples and community projects
+
+**Private** — only you and invited collaborators can see it. Good for:
+- Personal experiments
+- Client work
+- Early-stage ideas
+- Anything with sensitive information
+
+> **Beginner rule:** When in doubt, start private. You can always make a repo public later — but you can't un-publish something that's already been seen.
 
 ---
 
@@ -186,6 +253,8 @@ Now let's get a local copy on your computer.
 2. Click the **GitHub.com** tab and find your new repo
 3. Choose where to save it on your computer
 4. Click **Clone**
+
+GitHub Desktop will create a folder on your computer with your repo inside.
 
 **Option B: Terminal**
 
@@ -205,13 +274,36 @@ nothing to commit, working tree clean
 
 That means your local copy is ready and synced with GitHub.
 
+> **Where does the folder go?** When you clone, Git creates a new folder with your repo's name inside whatever location you chose. You don't need to create a folder first — Git creates it for you. On Mac, Documents is a good place. On Windows, your user folder works.
+
+### Is it safe to clone a public repo?
+
+Yes — cloning is just copying files. The risk only comes if you explicitly *run* executable files from an unknown source.
+
+If you're evaluating whether a public repo is trustworthy:
+- Check the star count and fork count — more is generally better
+- Look for an MIT or Apache license
+- Check when it was last updated
+- When in doubt, you can paste the GitHub URL into Claude and ask: *"Can you review this repo and tell me if anything looks suspicious?"*
+
 ---
 
 ## Part 7: Make a Change
 
 Let's add something to your repo.
 
-Open your repo folder. You can use VS Code, Cursor, any text editor, or GitHub Desktop's "Open in editor" option.
+### Open your repo folder
+
+Open the folder you just cloned. You can use:
+- **VS Code** or **Cursor** (recommended)
+- **TextEdit** on Mac (built-in, works fine)
+- **Notepad** on Windows (built-in, works fine)
+
+> **Do NOT use Microsoft Word or Google Docs.** They add invisible formatting that breaks plain text files. Use a plain text editor only.
+
+> **Do NOT edit files directly on the GitHub website.** You can do it, but it skips the local workflow and defeats the purpose of Git. Always edit locally.
+
+### Create a new file
 
 Create a new file called:
 ```
@@ -236,7 +328,7 @@ Today I created my first GitHub repo and made my first commit.
 (Write something here — your project, your use case, anything)
 ```
 
-Save the file.
+Save the file (Cmd+S on Mac, Ctrl+S on Windows).
 
 ---
 
@@ -371,9 +463,43 @@ This is also exactly what AI tools like Claude Code are doing under the hood whe
 
 ---
 
-## Part 13: What Never Goes in a Repo
+## Part 13: Commit Messages and Best Practices
 
-Before we go further, one important rule:
+### When should you commit?
+
+- When you finish one focused, working thing
+- Before you try something risky or experimental
+- After an AI tool makes a change you've reviewed and approved
+- At the end of a work session, so you don't lose progress
+- Whenever you'd want a checkpoint to return to
+
+**Commit working code.** Don't commit half-finished work to main — if something is broken mid-build, use a branch (more on that below). The goal is that every commit on main represents a working state you could return to.
+
+**Don't batch everything into one giant commit.** Small, focused commits are easier to review, easier to revert, and more useful as checkpoints.
+
+### Branch naming best practices
+
+When you create a branch, give it a name that describes what you're working on:
+
+- Use hyphens, not spaces: `update-homepage` not `update homepage`
+- Be short but specific: `fix-login-bug` not `fix`
+- Common prefixes: `feature/`, `fix/`, `experiment/`, `update/`
+  - `feature/add-rsvp-form`
+  - `fix/mobile-layout`
+  - `experiment/new-color-scheme`
+
+Avoid: `branch1`, `test`, `new`, `my-branch`, `untitled`
+
+If you're working with others (or with Claude Code on a team project), including your name and date helps track ownership:
+```
+anennya-2026-06-27-update-homepage
+```
+
+---
+
+## Part 14: What Never Goes in a Repo
+
+One important rule before you start pushing code:
 
 **Never commit:**
 ```
@@ -387,13 +513,35 @@ Financial information
 Private documents
 ```
 
-This is especially critical for public repos. GitHub stores history — even if you delete a file later, old commits may still contain the secret.
+This is especially critical for public repos. GitHub stores full history — even if you delete a file later, old commits may still contain the secret. If you accidentally commit a secret, change/rotate the key immediately. Deleting the file is not enough.
 
-If you accidentally commit a secret, change/rotate the key immediately. Deleting the file is not enough.
+### How to keep secrets out: `.env` and `.gitignore`
+
+**The `.env` file** is where you store API keys and secrets locally. It looks like this:
+
+```
+OPENAI_API_KEY=sk-abc123
+DATABASE_URL=postgres://...
+```
+
+Claude and your app can read this file to access those keys — but you don't want it going to GitHub.
+
+**The `.gitignore` file** is a list of files you tell Git to never upload. You add `.env` to it:
+
+```
+.env
+.env.local
+*.log
+node_modules/
+```
+
+Once a file is in `.gitignore`, Git ignores it completely — it won't show up in your changes and won't be committed.
+
+> **You can ask Claude to set this up:** "Add a `.gitignore` file to this project and make sure `.env` is listed." It knows exactly what to do.
 
 ---
 
-## Part 14: GitHub and AI Tools
+## Part 15: GitHub and AI Tools
 
 ### Claude Code
 
@@ -413,12 +561,62 @@ Before committing any AI-generated change, ask yourself:
 - Do I understand the change?
 - Does the project still run?
 
-A useful prompt to give Claude Code before it makes changes:
+**A useful prompt to give Claude Code before it makes changes:**
 ```
 Before making changes, explain your plan. Make one focused change only.
 Do not modify unrelated files. After making changes, summarize what changed
 and which files you touched.
 ```
+
+### Instructing Claude on how to use Git
+
+One of the most powerful things you can do: tell Claude Code *how* you want it to work with Git. You can put these instructions in a file called `CLAUDE.md` in your repo, and Claude will follow them automatically every session.
+
+Example `CLAUDE.md` with Git instructions:
+
+```markdown
+# Project Instructions for Claude
+
+## Git Workflow
+- Always create a branch before making changes. Name branches like: feature/description or fix/description
+- Write commit messages in the format: Verb + what changed (e.g. "Add RSVP form")
+- Commit after each focused change, not in bulk
+- Never commit .env files or API keys
+- After making changes, summarize what files you touched and why
+
+## General Rules
+- Keep changes small and easy to review
+- Do not rewrite unrelated files
+- Ask before changing anything related to payments, auth, or database schema
+- Prefer simple, readable solutions over clever ones
+```
+
+This is how you stay in control even as AI tools make fast changes: you set the rules once, and Claude follows them every time.
+
+### How to revert a commit
+
+Made a commit that broke something? You can undo it.
+
+**Option A: GitHub Desktop**
+1. Click the **History** tab
+2. Right-click the commit you want to undo
+3. Select **Revert changes in this commit**
+
+This creates a new commit that undoes the previous one — your history stays intact.
+
+**Option B: Terminal (safe)**
+```bash
+git revert HEAD
+```
+Creates a new "undo" commit. Safe to use anytime.
+
+**Option B: Terminal (destructive — use with caution)**
+```bash
+git reset --hard HEAD~1
+```
+Erases the last commit entirely. Only use this if you haven't pushed yet and are sure you want to wipe it.
+
+> When in doubt, use `git revert` — it's always safe. You can also just ask Claude: "The last change you made isn't working. Can you revert it?"
 
 ### Lovable
 
@@ -428,47 +626,97 @@ When Lovable is connected to GitHub:
 - You can roll back to a previous version if something breaks
 - You can share your project or connect it to deployment tools
 
+Lovable commits automatically with almost every change. That's great for checkpointing, but it means your commit history can get noisy. Look at the diffs regularly to stay aware of what's changed.
+
 **The key habit:** after any AI-generated change, open GitHub and look at the diff. Ask: *Do I understand what changed? Does it look right?*
 
 ---
 
-## Part 15: Branches — A Preview
+## Part 16: Branches
 
-You don't need branches today. But here's the idea for when you're ready.
+You don't need branches today. But here's the idea for when you're ready — and it's important context for how AI tools work.
 
-A branch is a parallel version of your project where you can experiment safely.
+### The mental model
+
+Think of your project as a tree. **Main** is the trunk — the stable, official version. A **branch** is a new limb you grow off the trunk.
 
 ```
-main = the official, stable version
-branch = your scratchpad
+main (trunk — stable, official)
+  └── feature/add-contact-form  ← your branch
+  └── experiment/new-homepage   ← another branch
 ```
 
-You work on the branch, and when you're happy with the result, you merge it into main.
+You work on a branch, and when you're happy, you merge it back into main. The trunk never changes until you decide it should.
 
-This is how Claude Code works when it makes bigger changes — it creates a branch, commits the changes there, and opens a pull request for you to review before anything goes into main.
+### When would you use a branch?
 
-For now, remember:
-> Branches are for safe experiments. You don't need them for your first commit.
+- You want to try something experimental without risking the working version
+- You're adding a feature that will take multiple sessions to finish
+- You're asking Claude Code to make a bigger change and want to review it before it goes to main
+- You're collaborating with others and don't want to overwrite each other's work
+
+### How to create a branch
+
+**GitHub Desktop:**
+1. Click the **Current Branch** dropdown at the top
+2. Click **New Branch**
+3. Name it (e.g., `experiment-new-layout`)
+4. Click **Create Branch**
+
+You're now on that branch. Any commits you make stay there, not on main.
+
+**Terminal:**
+```bash
+git checkout -b feature/add-contact-form
+```
+
+To switch back to main:
+```bash
+git checkout main
+```
+
+To see all your branches:
+```bash
+git branch
+```
+
+### The AI connection
+
+When Claude Code makes a bigger change to your project, it typically creates a branch automatically, commits there, and opens a pull request for you to review. That's exactly this workflow — you just watched it happen manually.
 
 For a deeper explanation, see the [Branches section in the GitHub 101 Guide](./github-101-final.md#branches).
 
 ---
 
-## Part 16: Pull Requests — A Preview
+## Part 17: Pull Requests
 
-A pull request (PR) is a proposal to bring changes from a branch into main. It includes a review step before anything is finalized.
+A pull request (PR) is a proposal to bring changes from a branch into main. It includes a built-in review step — before anything is finalized, you get to look at exactly what changed.
 
-You'll encounter PRs when:
-- You use branches
-- You collaborate with others
-- Claude Code or another AI tool makes a bigger change
+### What you see in a PR
 
-The most important thing to look at in a PR:
+- **The diff** — green = added, red = removed. This is the most important view.
+- **A list of commits** included in the branch
+- **Comments** — you or reviewers can leave notes on specific lines
+- **The merge button** — when you're ready to make it official
 
-**The diff** — a view that shows exactly what changed. Green = added. Red = removed.
+### How to open a pull request
 
-For today:
-> A commit is a checkpoint. A pull request is a review step. Both exist to help you understand and control what happens to your project.
+1. Commit and push your changes on a branch (not main)
+2. Go to your repo on GitHub.com
+3. You'll see a yellow banner: **"Compare & pull request"** — click it
+4. Add a title and description
+5. Click **Create pull request**
+6. Review the diff — does everything look right?
+7. Click **Merge pull request** when you're ready
+
+### Why PRs matter even when you're working alone
+
+A pull request forces a review step before anything goes to main. It's a moment to slow down and ask:
+- What changed?
+- Do I understand it?
+- Do I approve it?
+
+> **The AI can draft the change. You review and approve it. That's the whole pattern.**
 
 For a deeper explanation, see the [Pull Requests section in the GitHub 101 Guide](./github-101-final.md#pull-requests).
 
@@ -486,6 +734,7 @@ After today, try this on your own:
 When you're ready to go further:
 - Try creating a branch
 - Open a pull request
+- Add a `CLAUDE.md` to one of your projects and give Claude git instructions
 - Connect a project to Claude Code or Lovable and review the changes in GitHub
 
 ---
