@@ -450,6 +450,8 @@ This is how Claude Code works when it makes bigger changes — it creates a bran
 For now, remember:
 > Branches are for safe experiments. You don't need them for your first commit.
 
+For a deeper explanation, see the [Branches section in the GitHub 101 Guide](./github-101-final.md#branches).
+
 ---
 
 ## Part 16: Pull Requests — A Preview
@@ -467,6 +469,8 @@ The most important thing to look at in a PR:
 
 For today:
 > A commit is a checkpoint. A pull request is a review step. Both exist to help you understand and control what happens to your project.
+
+For a deeper explanation, see the [Pull Requests section in the GitHub 101 Guide](./github-101-final.md#pull-requests).
 
 ---
 
